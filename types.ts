@@ -88,8 +88,95 @@ export interface TimelineCardData {
     width?: CardWidth;
 }
 
+export interface SimileCardData {
+  type: 'simile';
+  input: string;
+  similes: string[];
+  width?: CardWidth;
+}
 
-export type InfographicCardData = TitleCardData | TextCardData | KPICardData | ChartCardData | QuoteCardData | TimelineCardData;
+export interface ExplodeCardData {
+  type: 'explode';
+  input: string;
+  explosions: string[];
+  width?: CardWidth;
+}
+
+export interface UnexpectCardData {
+  type: 'unexpect';
+  input: string;
+  unexpecteds: string[];
+  width?: CardWidth;
+}
+
+export interface ChainCardData {
+  type: 'chain';
+  input: string;
+  chain: string[];
+  width?: CardWidth;
+}
+
+export interface POVCardData {
+  type: 'pov';
+  input: string;
+  perspectives: string[];
+  width?: CardWidth;
+}
+
+export interface AlliterationCardData {
+  type: 'alliteration';
+  topic: string;
+  letter: string;
+  words: string[];
+  width?: CardWidth;
+}
+
+export interface AcronymCardData {
+  type: 'acronym';
+  input: string;
+  acronyms: string[];
+  width?: CardWidth;
+}
+
+export interface FuseCardData {
+  type: 'fuse';
+  concept1: string;
+  concept2: string;
+  fusions: string[];
+  width?: CardWidth;
+}
+
+export interface SceneCardData {
+  type: 'scene';
+  input: string;
+  details: string[];
+  width?: CardWidth;
+}
+
+export interface UnfoldCardData {
+  type: 'unfold';
+  input: string;
+  unfolds: string[];
+  width?: CardWidth;
+}
+
+export type InfographicCardData =
+  | TitleCardData
+  | TextCardData
+  | KPICardData
+  | ChartCardData
+  | QuoteCardData
+  | TimelineCardData
+  | SimileCardData
+  | ExplodeCardData
+  | UnexpectCardData
+  | ChainCardData
+  | POVCardData
+  | AlliterationCardData
+  | AcronymCardData
+  | FuseCardData
+  | SceneCardData
+  | UnfoldCardData;
 
 
 // --- Component Prop Types ---

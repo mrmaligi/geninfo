@@ -107,6 +107,132 @@ Generate a JSON array of "card" objects. Each card represents a visual element o
     }
     \`\`\`
 
+**Creative Card Types:**
+
+7.  **Simile Card:** For creative comparisons.
+    \`\`\`json
+    {
+      "type": "simile",
+      "input": "a bustling city",
+      "similes": [
+        "as chaotic as a kicked anthill",
+        "like a circuit board with a million flashing lights"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+8.  **Explode Card:** For playful word breakdowns.
+    \`\`\`json
+    {
+      "type": "explode",
+      "input": "dedicate",
+      "explosions": [
+        "dead eight",
+        "did I cite"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+9.  **Unexpect Card:** For surprising twists.
+    \`\`\`json
+    {
+      "type": "unexpect",
+      "input": "a walk in the park",
+      "unexpecteds": [
+        "a walk in the park where the pigeons are robotic and whisper secrets"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+10. **Chain Card:** For semantic word chains.
+    \`\`\`json
+    {
+      "type": "chain",
+      "input": "mountain",
+      "chain": ["mountain", "peak", "snow", "cold", "winter", "fireplace", "warmth"],
+      "width": "half"
+    }
+    \`\`\`
+
+11. **POV Card:** For multiple perspectives.
+    \`\`\`json
+    {
+      "type": "pov",
+      "input": "social media",
+      "perspectives": [
+        "a psychologist's concern",
+        "a marketer's opportunity",
+        "a teenager's social lifeline"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+12. **Alliteration Card:** For poetic word lists.
+    \`\`\`json
+    {
+      "type": "alliteration",
+      "topic": "ocean",
+      "letter": "d",
+      "words": ["deep", "dark", "damp", "drowning"],
+      "width": "half"
+    }
+    \`\`\`
+
+13. **Acronym Card:** For creative backronyms.
+    \`\`\`json
+    {
+      "type": "acronym",
+      "input": "DREAM",
+      "acronyms": ["Determinedly Reaching for Extraordinary Aspirations and Meaning"],
+      "width": "half"
+    }
+    \`\`\`
+
+14. **Fuse Card:** For unexpected connections.
+    \`\`\`json
+    {
+      "type": "fuse",
+      "concept1": "a car",
+      "concept2": "a tree",
+      "fusions": [
+        "a car with a wooden chassis",
+        "the rust on a car spreading like rings on a tree trunk"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+15. **Scene Card:** For sensory scene details.
+    \`\`\`json
+    {
+      "type": "scene",
+      "input": "a quiet library",
+      "details": [
+        "the scent of old paper and dust",
+        "the soft rustle of turning pages",
+        "the gentle hum of fluorescent lights"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
+16. **Unfold Card:** For creative phrase insertions.
+    \`\`\`json
+    {
+      "type": "unfold",
+      "input": "fire",
+      "unfolds": [
+        "a heart on fire",
+        "firing up the engine"
+      ],
+      "width": "half"
+    }
+    \`\`\`
+
 **Instructions & Content:**
 -   **Topic:** The user's requested topic is: **"${topic}"**.
 -   **Variety is Key:** Each time you respond, use a mix of different card types and layouts to create an expressive and dynamic infographic. A good response contains 2-4 cards.
