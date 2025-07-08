@@ -1,0 +1,6 @@
+{
+  "name": "Infographic Generator",
+  "description": "Generates a series of infographics on a user-selected topic with an infinite scroll interface.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

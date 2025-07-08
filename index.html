@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generative Infographic AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+      @layer utilities {
+        /* Define animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main body style for a clean, professional feel */
+        body {
+          @apply bg-gray-50 font-sans;
+        }
+
+        .font-sans {
+          font-family: 'Inter', sans-serif;
+        }
+        
+        /* Animation utility */
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* --- Topic Input Screen --- */
+        .topic-input {
+            @apply w-full text-base px-4 py-3 rounded-lg border border-gray-300 shadow-sm transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-200;
+        }
+        .topic-submit-button {
+            @apply bg-blue-600 text-white rounded-lg py-3 px-6 cursor-pointer text-base font-semibold text-center transition-all duration-200 ease-in-out hover:bg-blue-700 active:bg-blue-800 shadow-md disabled:bg-blue-300 disabled:cursor-not-allowed flex items-center justify-center;
+        }
+
+        /* --- Buttons & General --- */
+        .llm-button-secondary {
+          @apply bg-white text-blue-600 border border-blue-200 rounded-lg py-2 px-5 cursor-pointer text-sm font-semibold text-center transition-all duration-200 ease-in-out hover:bg-blue-50 hover:border-blue-300 active:bg-blue-100 shadow;
+        }
+
+        /* --- Infographic Card Styles --- */
+        .title-card {
+           @apply text-center py-4;
+        }
+        .text-card {
+          @apply bg-white rounded-xl shadow p-6 flex flex-col gap-4 border border-gray-200;
+        }
+        .chart-card {
+          @apply bg-white rounded-xl shadow p-6 border border-gray-200 flex flex-col gap-4;
+        }
+        .chart-title {
+          @apply text-xl font-bold text-gray-700 text-center;
+        }
+        .chart-switch-container {
+          @apply flex items-center justify-center gap-1 bg-gray-100 p-1 rounded-lg;
+        }
+        .chart-switch-button {
+          @apply text-xs font-medium text-gray-500 px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white hover:text-gray-800;
+        }
+        .chart-switch-button.active {
+          @apply bg-white text-blue-600 shadow-sm;
+        }
+        .kpi-card-container {
+           @apply flex flex-col;
+        }
+        .kpi-card-grid {
+           @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+        }
+        .kpi-card {
+          @apply bg-white rounded-xl shadow p-5 border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-blue-300;
+        }
+        .kpi-icon {
+          @apply text-3xl mr-4 p-3 bg-blue-100 text-blue-600 rounded-full;
+        }
+        .kpi-value {
+          @apply text-3xl font-extrabold text-gray-800;
+        }
+        .kpi-label {
+          @apply text-sm font-medium text-gray-500;
+        }
+        .quote-card {
+          @apply bg-blue-50 border-l-4 border-blue-400 rounded-r-lg shadow p-6;
+        }
+        .quote-content {
+          @apply text-xl italic text-gray-700;
+        }
+        .quote-author {
+          @apply text-right mt-4 font-semibold text-gray-600;
+        }
+        .timeline-card {
+          @apply bg-white rounded-xl shadow p-6 border border-gray-200;
+        }
+        .timeline-title {
+          @apply text-xl font-bold text-gray-700 mb-4 text-center;
+        }
+        .timeline-item {
+          @apply relative pl-8 border-l-2 border-gray-200 py-2;
+        }
+        .timeline-dot {
+          @apply absolute -left-[9px] top-4 w-4 h-4 bg-white border-2 border-blue-500 rounded-full;
+        }
+        .timeline-date {
+          @apply font-bold text-blue-600;
+        }
+        .timeline-item-title {
+          @apply font-semibold text-gray-800;
+        }
+        .timeline-item-desc {
+          @apply text-gray-600 text-sm;
+        }
+
+
+        /* --- Source/Citation Styles --- */
+        .source-container {
+            @apply border-t border-gray-200 pt-3 mt-4;
+        }
+        .source-list-title {
+            @apply text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2;
+        }
+        .source-pill {
+            @apply inline-flex items-center bg-gray-100 text-gray-600 rounded-full py-1 pl-2 pr-3 cursor-pointer text-xs font-medium transition-colors duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-700;
+        }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+          "@tailwindcss/browser": "https://esm.sh/@tailwindcss/browser@^4.1.10",
+          "chart.js": "https://esm.sh/chart.js@^4.4.3",
+          "chart.js/auto": "https://esm.sh/chart.js@^4.4.3/auto"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
